@@ -13,6 +13,7 @@ public class HelloWorld {
             System.out.println(helloWorld.greet(args[0]));
         } else {
             System.out.println("No argument provided. Usage: java HelloWorld <name>");
+            System.out.println(helloWorld.greet("World"));
         }
     }
 }
