@@ -1,0 +1,31 @@
+// Jenkinsfile2
+pipeline {
+    agent any
+    tools {
+        maven 'maven3'
+    }
+    stages {
+
+        stage('Build') {
+            steps {
+                echo 'Building the project...'
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                sh 'mvn test'
+            }
+        }
+
+        stage('Code Quality') {
+            steps {
+                echo 'Running code quality analysis...'
+                // Ajoutez ici les commandes pour exécuter SonarQube
+                sh 'mvn sonar:sonar'
+            }
+        }
+    }
+}
