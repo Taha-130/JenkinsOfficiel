@@ -1,0 +1,38 @@
+// Jenkinsfile
+pipeline {
+    agent any
+    tools {
+        maven 'maven3'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the project...'
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                sh 'mvn test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the project locally...'
+                // Créer un répertoire de déploiement dans le dossier personnel
+                sh 'mkdir -p ~/deployment'
+                // Copier les fichiers générés dans le répertoire de déploiement
+                sh 'cp -r target/* ~/deployment/'
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Archiving artifacts...'
+            archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
+        }
+    }
+}
