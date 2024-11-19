@@ -20,12 +20,17 @@ pipeline {
             }
         }
 
-        stage('Code Quality') {
+        stage('Test Report') {
             steps {
-                echo 'Running code quality analysis...'
-                // Ajoutez ici les commandes pour exécuter SonarQube
-                sh 'mvn sonar:sonar'
+                echo 'Generating test report...'
+                // Utilisez le plugin JUnit pour publier les résultats des tests
+                junit 'target/surefire-reports/*.xml'
             }
+        }
+    }
+    post {
+        always {
+            archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
         }
     }
 }
