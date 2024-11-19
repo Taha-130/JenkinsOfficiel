@@ -3,10 +3,16 @@ pipeline {
     agent any
 
     stages {
+        tools
+        {
+            maven 'maven3'
+        }
         stage('Build') {
             steps {
                 echo 'Building the project...'
                 // Ajoutez ici les commandes pour construire votre projet
+                sh 'mvn clean package'
+
             }
         }
 
