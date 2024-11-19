@@ -1,12 +1,11 @@
 // Jenkinsfile
 pipeline {
     agent any
-
+    tools
+    {
+        maven 'maven3'
+    }
     stages {
-        tools
-        {
-            maven 'maven3'
-        }
         stage('Build') {
             steps {
                 echo 'Building the project...'
