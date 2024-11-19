@@ -5,6 +5,7 @@ pipeline {
         maven 'maven3'
     }
     stages {
+
         stage('Build') {
             steps {
                 echo 'Building the project...'
@@ -26,6 +27,14 @@ pipeline {
                 sh 'mkdir -p ~/deployment'
                 // Copier les fichiers générés dans le répertoire de déploiement
                 sh 'cp -r target/* ~/deployment/'
+            }
+        }
+
+        stage('Run') {
+            steps {
+                echo 'Running the deployed application...'
+                // Exécuter l'application avec un argument
+                sh 'java -jar ~/deployment/hello-world-1.0-SNAPSHOT.jar Taha'
             }
         }
     }
