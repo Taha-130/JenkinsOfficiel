@@ -34,7 +34,7 @@ pipeline {
             steps {
                 echo 'Running the deployed application...'
                 // Exécuter l'application avec un argument
-                sh 'java -jar ~/deployment/hello-world-1.0-SNAPSHOT.jar Taha'
+                sh 'java -jar ~/deployment/hello-world-1.0-SNAPSHOT.jar M.Tran'
             }
         }
     }
