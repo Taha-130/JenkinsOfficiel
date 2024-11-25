@@ -42,6 +42,7 @@ pipeline {
         always {
             echo 'Archiving artifacts...'
             archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
+            // modif test
         }
     }
 }
