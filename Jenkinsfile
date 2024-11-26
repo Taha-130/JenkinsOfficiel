@@ -1,4 +1,4 @@
-// Jenkinsfile
+n// Jenkinsfile
 pipeline {
     agent any
     tools
@@ -20,7 +20,7 @@ pipeline {
                 echo 'Running tests...'
                 // Ajoutez ici les commandes pour tester votre projet
                 sh 'mvn test'
-                //modification
+                //modification pipeline 1
 
             }
         }
