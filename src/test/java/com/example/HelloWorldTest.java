@@ -27,7 +27,7 @@ public class HelloWorldTest {
 
         HelloWorld.main(new String[]{});
         
-        String expectedOutput = "No argument provided    Bravo à vous   . Usage: java HelloWorld <name>" + System.lineSeparator();
+        String expectedOutput = "No argument provided. Usage: java HelloWorld <name>" + System.lineSeparator();
         assertEquals(expectedOutput, outContent.toString());
         
         System.setOut(System.out);
