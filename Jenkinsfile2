@@ -23,7 +23,7 @@ pipeline {
         stage('Test Report') {
             steps {
                 echo 'Generating test report...'
-                // Utilisez le plugin JUnit pour publier les résultats des tests
+                // Utilisez le plugin JUnit pour publier les résultats des tests modif
                 junit 'target/surefire-reports/*.xml'
             }
         }
