@@ -20,7 +20,7 @@ pipeline {
                 echo 'Running tests...'
                 // Ajoutez ici les commandes pour tester votre projet
                 sh 'mvn test'
-                //modification pipeline 1
+                //modification pipeline 12
 
             }
         }
